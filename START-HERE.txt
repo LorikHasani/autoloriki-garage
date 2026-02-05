@@ -1,0 +1,188 @@
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║   ⚙️  AUTOFIX GARAGE MANAGEMENT SYSTEM                        ║
+║                                                               ║
+║   Complete Full-Stack Application with Supabase Backend      ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+
+📦 WHAT'S INCLUDED
+==================
+✓ Complete React application (GarageApp.jsx - 1279 lines)
+✓ Supabase database schema with sample data
+✓ Full API integration layer (supabaseClient.js)
+✓ Vite build configuration
+✓ Environment setup templates
+✓ Automated setup script
+✓ Comprehensive documentation
+
+
+🚀 QUICK START (5 MINUTES)
+===========================
+
+1️⃣  SETUP SUPABASE (2 min)
+   → Go to https://supabase.com
+   → Create new project (free tier)
+   → Wait for initialization
+   → Go to SQL Editor
+   → Copy/paste content from supabase-schema.sql
+   → Click Run
+
+2️⃣  GET API CREDENTIALS (1 min)
+   → In Supabase: Settings → API
+   → Copy "Project URL"
+   → Copy "anon/public key"
+
+3️⃣  CONFIGURE PROJECT (1 min)
+   → Copy .env.example to .env
+   → Paste your Supabase URL and key
+
+4️⃣  INSTALL & RUN (1 min)
+   → Run: npm install
+   → Run: npm run dev
+   → Open: http://localhost:3000
+
+
+📁 PROJECT STRUCTURE
+====================
+autofix-garage/
+├── src/
+│   ├── App.jsx                    ← Main application (use this!)
+│   ├── main.jsx                   ← React entry point
+│   └── App-supabase-template.jsx ← Reference for Supabase integration
+├── index.html                     ← HTML entry
+├── package.json                   ← Dependencies
+├── vite.config.js                 ← Build config
+├── supabaseClient.js              ← API wrapper (ready to use)
+├── supabase-schema.sql            ← Database setup (run in Supabase)
+├── .env.example                   ← Config template
+├── .gitignore                     ← Git exclusions
+├── setup.sh                       ← Automated setup (Linux/Mac)
+├── README.md                      ← Full documentation
+├── DEPLOYMENT-GUIDE.md            ← Step-by-step deployment
+└── START-HERE.txt                 ← This file
+
+
+✨ FEATURES
+===========
+Dashboard
+   • Real-time KPIs (Revenue, COGS, Profit)
+   • Recent completed orders
+   • Profit breakdown
+
+Customers
+   • Full CRUD operations
+   • Search by name, phone, or license plate
+   • Service history with profit tracking
+   • Vehicle fleet per customer
+
+Vehicles
+   • Registration with owner linking
+   • License plate tracking
+   • Quick search and filters
+
+Service Orders
+   • Multi-service orders
+   • Part quantity with per-unit pricing
+   • Live profit calculation
+   • Payment status (Paid/Unpaid)
+   • Auto-archiving next day
+   • Print invoices
+
+Daily Log
+   • Historical records by date
+   • Date range filtering
+   • Daily summaries
+
+Invoices
+   • Unified view (active + archived)
+   • Payment filtering
+   • Expandable details
+   • Print with price toggle
+
+
+🔧 AVAILABLE COMMANDS
+=====================
+npm install          Install dependencies
+npm run dev          Start development server (port 3000)
+npm run build        Build for production
+npm run preview      Preview production build
+
+
+📖 DOCUMENTATION
+================
+README.md              → Full project docs, features, tech stack
+DEPLOYMENT-GUIDE.md    → Detailed Supabase setup & deployment
+supabase-schema.sql    → Database schema (read comments)
+
+
+🎯 CURRENT STATE
+================
+The app is ready to run locally with in-memory state.
+For full Supabase integration:
+   1. Use supabaseClient.js API methods
+   2. Replace state updates with API calls
+   3. See App-supabase-template.jsx for examples
+
+
+🌐 DEPLOYMENT OPTIONS
+======================
+• Vercel (recommended) - Automatic deploys from Git
+• Netlify - Easy static hosting
+• Any static host (Cloudflare Pages, GitHub Pages)
+
+See DEPLOYMENT-GUIDE.md for complete instructions.
+
+
+🔐 SECURITY NOTES
+=================
+• Never commit .env file (already in .gitignore)
+• Use different Supabase projects for dev/prod
+• Enable Row Level Security in production
+• Add authentication for multi-user access
+
+
+💡 TIPS
+=======
+• Start with local development (App.jsx)
+• Test all features before integrating Supabase
+• Use provided seed data in supabase-schema.sql
+• Check browser console for any errors
+• Review Supabase dashboard logs
+
+
+🐛 TROUBLESHOOTING
+==================
+Build errors?
+   → rm -rf node_modules && npm install
+
+Port 3000 in use?
+   → Edit vite.config.js, change port to 3001
+
+Can't connect to Supabase?
+   → Check .env has correct credentials
+   → Verify Supabase project is active
+   → Review DEPLOYMENT-GUIDE.md
+
+
+📧 NEED HELP?
+=============
+1. Check DEPLOYMENT-GUIDE.md (very detailed!)
+2. Review README.md for tech details
+3. Check browser console for errors
+4. Review Supabase docs: https://supabase.com/docs
+
+
+🎉 READY TO START?
+==================
+Run these commands:
+
+   npm install
+   npm run dev
+
+Then open http://localhost:3000 in your browser!
+
+
+════════════════════════════════════════════════════════════════
+Built with ❤️ for garage owners who deserve better tools
+════════════════════════════════════════════════════════════════
