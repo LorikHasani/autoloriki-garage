@@ -1476,12 +1476,29 @@ export default function App() {
         // Import database helper
         const db = await import('./database.js');
         
+        console.log('📥 Starting to load data from database...');
+        
         // Load all data in parallel
         const [customersData, vehiclesData, ordersData] = await Promise.all([
-          db.customersDB.getAll(),
-          db.vehiclesDB.getAll(),
-          db.ordersDB.getAll()
+          db.customersDB.getAll().catch(err => {
+            console.error('❌ Error loading customers:', err);
+            throw new Error(`Customers: ${err.message}`);
+          }),
+          db.vehiclesDB.getAll().catch(err => {
+            console.error('❌ Error loading vehicles:', err);
+            throw new Error(`Vehicles: ${err.message}`);
+          }),
+          db.ordersDB.getAll().catch(err => {
+            console.error('❌ Error loading orders:', err);
+            throw new Error(`Orders: ${err.message}`);
+          })
         ]);
+        
+        console.log('📊 Raw data loaded:', {
+          customers: customersData.length,
+          vehicles: vehiclesData.length,
+          orders: ordersData.length
+        });
         
         // Set state
         setCustomers(customersData);
@@ -1506,8 +1523,13 @@ export default function App() {
           dailyLog: archived.length
         });
       } catch (error) {
-        console.error('❌ Error loading data:', error);
-        alert('Gabim gjatë ngarkimit të të dhënave nga databaza!');
+        console.error('❌ Full error details:', error);
+        console.error('Error name:', error.name);
+        console.error('Error message:', error.message);
+        console.error('Error stack:', error.stack);
+        
+        // Show user-friendly error
+        alert(`Gabim gjatë ngarkimit të të dhënave!\n\nDetajet: ${error.message}\n\nShiko console (F12) për më shumë informacion.`);
       } finally {
         setLoading(false);
       }
