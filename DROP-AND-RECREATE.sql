@@ -105,15 +105,24 @@ ALTER TABLE customers ENABLE ROW LEVEL SECURITY;
 ALTER TABLE vehicles ENABLE ROW LEVEL SECURITY;
 ALTER TABLE service_orders ENABLE ROW LEVEL SECURITY;
 
--- Create RLS policies
-CREATE POLICY "Enable all for authenticated users" ON customers
-  FOR ALL USING (auth.role() = 'authenticated');
+-- Create RLS policies for anon users (full access)
+-- CUSTOMERS
+CREATE POLICY "anon_select_customers" ON customers FOR SELECT TO anon USING (true);
+CREATE POLICY "anon_insert_customers" ON customers FOR INSERT TO anon WITH CHECK (true);
+CREATE POLICY "anon_update_customers" ON customers FOR UPDATE TO anon USING (true) WITH CHECK (true);
+CREATE POLICY "anon_delete_customers" ON customers FOR DELETE TO anon USING (true);
 
-CREATE POLICY "Enable all for authenticated users" ON vehicles
-  FOR ALL USING (auth.role() = 'authenticated');
+-- VEHICLES
+CREATE POLICY "anon_select_vehicles" ON vehicles FOR SELECT TO anon USING (true);
+CREATE POLICY "anon_insert_vehicles" ON vehicles FOR INSERT TO anon WITH CHECK (true);
+CREATE POLICY "anon_update_vehicles" ON vehicles FOR UPDATE TO anon USING (true) WITH CHECK (true);
+CREATE POLICY "anon_delete_vehicles" ON vehicles FOR DELETE TO anon USING (true);
 
-CREATE POLICY "Enable all for authenticated users" ON service_orders
-  FOR ALL USING (auth.role() = 'authenticated');
+-- SERVICE ORDERS
+CREATE POLICY "anon_select_orders" ON service_orders FOR SELECT TO anon USING (true);
+CREATE POLICY "anon_insert_orders" ON service_orders FOR INSERT TO anon WITH CHECK (true);
+CREATE POLICY "anon_update_orders" ON service_orders FOR UPDATE TO anon USING (true) WITH CHECK (true);
+CREATE POLICY "anon_delete_orders" ON service_orders FOR DELETE TO anon USING (true);
 
 
 -- ───────────────────────────────────────────────────────────────────────────
